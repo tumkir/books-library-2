@@ -1,4 +1,5 @@
 import json
+from math import ceil
 from os import makedirs
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -15,16 +16,19 @@ with open('books_data.json', 'r') as my_file:
 
 
 books_data = json.loads(books_data_json)
-books_data_chunked = chunked(books_data, 10)
+
+number_of_books_on_page = 10
+books_data_chunked = chunked(books_data, number_of_books_on_page)
+page_counts = ceil(len(books_data) / number_of_books_on_page)
 
 
 def on_reload():
     template = env.get_template('template.html')
     makedirs('pages', exist_ok=True)
-    for n, books_page in enumerate(books_data_chunked, start=1):
-        books_page_two_column = chunked(books_page, 2)
-        rendered_page = template.render(books_data_chunked=books_page_two_column)
-        with open(f'pages/index{n}.html', 'w', encoding='utf8') as file:
+    for current_page, books_on_page in enumerate(books_data_chunked, start=1):
+        books_on_page_two_column = chunked(books_on_page, 2)
+        rendered_page = template.render(books_on_page=books_on_page_two_column, page_counts=page_counts, current_page=current_page)
+        with open(f'pages/index{current_page}.html', 'w', encoding='utf8') as file:
             file.write(rendered_page)
 
 
