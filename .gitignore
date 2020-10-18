@@ -138,13 +138,4 @@ dmypy.json
 cython_debug/
 
 # Books file
-/books
-/images
 *.json
-*.txt
-!requirements.txt
-*.gif
-*.png
-*.jpg
-*.jpeg
-index*.html

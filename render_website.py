@@ -11,7 +11,7 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml'])
 )
 
-with open('books_data.json', 'r') as my_file:
+with open('./media/books_data.json', 'r') as my_file:
     books_data_json = my_file.read()
 
 

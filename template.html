@@ -46,7 +46,7 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src={{ '.' + book.image_src|urlencode }} class="card-img" alt="{{ book.title }}">
+                            <img src={{ "../media" + book.image_src[1:]|urlencode }} class="card-img" alt="{{ book.title }}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -55,8 +55,9 @@
                                 {%- for genre in book.genres -%}
                                 <p class="badge badge-light">{{ genre }}</p>
                                 {% endfor %}
-                                <p class="card-text"><a href={{ '.' + book.book_path|urlencode }}
-                                        target="_blank">Читать</a></p>
+                                {% if book.book_path %}
+                                <p class="card-text"><a href={{ "../media" + book.book_path[1:]|urlencode }} target="_blank">Читать</a></p>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
