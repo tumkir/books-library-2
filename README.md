@@ -2,7 +2,9 @@
 
 Генерирует простой многостраничный сайт-библиотеку.
 
-[Пример готово сайта](https://tumkir.github.io/books-library-2/pages/index1.html)
+[Пример готового сайта](https://tumkir.github.io/books-library-2/pages/index1.html)
+
+![Books library](./library_screenshot.png)
 
 ## Как сгенерировать html-страницы сайта со своими книгами
 
@@ -25,6 +27,6 @@ python3 render_website.py
 
 В папке `pages` появятся html-файлы сайта, а увидеть его вы сможете в браузере по адресу http://127.0.0.1:5500/pages/index1.html
 
-
+### Цель проекта
 
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org/).
